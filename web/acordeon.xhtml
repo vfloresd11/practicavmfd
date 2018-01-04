@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Facelet Title</title>
+        <style>
+            img{
+                width: 200px;
+                height: 200px;
+            }
+            </style>
+    </h:head>
+    <h:body>
+
+        <h:form id="form">           
+            <p:growl id="msgs" showDetail="true" />
+
+            <h3 style="margin-top:0">Basic</h3>
+            <p:accordionPanel>
+                <p:tab title="Computadora en Venta Liverpool">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <img src="imagenes/computadora1.jpg"/>
+                        <h:outputText
+                            value="Computadora Acer de Escritorio de venta en Liverpool..." />
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="Computadora en Venta Palacio Hierro">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <img src="imagenes/computadora2.jpg"/>                        
+                        <h:outputText value="Computadora Apple iMac de Escitorio de venta en Palacio de Hierro..." />
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="Computadora en Venta Sears">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <img src="imagenes/computadora3.jpg"/>
+                        <h:outputText value="Computadora Acer Portatil de venta en Palacio de Sears..." />
+                    </h:panelGrid>
+                </p:tab>
+            </p:accordionPanel>
+
+            <h3>Multiple Selection</h3>
+            <p:accordionPanel multiple="true">
+                <p:tab title="Computadora en Venta Liverpool">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <img src="imagenes/computadora1.jpg"/>
+                        <h:outputText
+                            value="Computadora de Escritorio Marca ACER Modelo VX2640G-MI12 No. Parte DT.VPUAL.002 Procesador Intel® CI3-7100, Memoria RAM 4GB, Disco Duro 1,000GB, Incluye Unidad óptica, Teclado y Mouse, Sistema Operativo Windows 10 Profesional 64 Bits, Garantía de 1 años en centro de servicio." />
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="Computadora en Venta Palacio Hierro">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <img src="imagenes/computadora2.jpg"/>
+                        <h:outputText value="La idea que nos motiva al crear una iMac es brindar una experiencia realmente cautivadora. Y ahora, esa idea está más vigente que nunca. La nueva iMac viene con nuevos procesadores, lo último en tecnología gráfica, almacenamiento innovador y conectividad con mayor ancho de banda. Y todo esto cobra vida en la pantalla Retina más brillante y con más colores creada para una iMac hasta ahora. Prepárate para disfrutar una experiencia aún más interactiva, de una forma totalmente nueva." />
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="Computadora en Venta Sears">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <img src="imagenes/computadora3.jpg"/>
+                        <h:outputText value="Intel Celeron N2830 Dual-Core processor 2.16GHz (up to 2.41GHz via Turbo boost), 1MB L2 Cache; Intel HD Graphics2GB DDR3 SDRAM system memory, 16GB ssd hard drive, 3-in-1 memory card reader ( SD, DXC, MultiMediaCard (MMC)); No optical drive15.6"/>
+                    </h:panelGrid>
+                </p:tab>
+            </p:accordionPanel>
+
+            <h3>On-Demand Loading</h3>
+            <p:accordionPanel dynamic="true" cache="true">
+                <p:tab title="Computadora en Venta Liverpool">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <img src="imagenes/computadora1.jpg"/>
+                        <h:outputText
+                            value="Computadora de Escritorio Marca ACER Modelo VX2640G-MI12 No. Parte DT.VPUAL.002 Procesador Intel® CI3-7100, Memoria RAM 4GB, Disco Duro 1,000GB, Incluye Unidad óptica, Teclado y Mouse, Sistema Operativo Windows 10 Profesional 64 Bits, Garantía de 1 años en centro de servicio." />
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="Computadora en Venta Palacio Hierro">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <img src="imagenes/computadora2.jpg"/>
+                        <h:outputText value="La idea que nos motiva al crear una iMac es brindar una experiencia realmente cautivadora. Y ahora, esa idea está más vigente que nunca. La nueva iMac viene con nuevos procesadores, lo último en tecnología gráfica, almacenamiento innovador y conectividad con mayor ancho de banda. Y todo esto cobra vida en la pantalla Retina más brillante y con más colores creada para una iMac hasta ahora. Prepárate para disfrutar una experiencia aún más interactiva, de una forma totalmente nueva." />
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="Computadora en Venta Sears">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <img src="imagenes/computadora3.jpg"/>
+                        <h:outputText value="Intel Celeron N2830 Dual-Core processor 2.16GHz (up to 2.41GHz via Turbo boost), 1MB L2 Cache; Intel HD Graphics2GB DDR3 SDRAM system memory, 16GB ssd hard drive, 3-in-1 memory card reader ( SD, DXC, MultiMediaCard (MMC)); No optical drive15.6" />
+                    </h:panelGrid>
+                </p:tab>
+            </p:accordionPanel>
+
+            <h3>Change Event</h3>
+            <p:accordionPanel>
+                <p:ajax event="tabChange" listener="#{tabbedView.onTabChange}" update=":form:msgs" />
+                <p:ajax event="tabClose" listener="#{tabbedView.onTabClose}" update=":form:msgs" />
+
+                <p:tab title="Computadora en Venta Liverpool">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <img src="imagenes/computadora1.jpg"/>
+                        <h:outputText
+                            value="Computadora de Escritorio Marca ACER Modelo VX2640G-MI12 No. Parte DT.VPUAL.002 Procesador Intel® CI3-7100, Memoria RAM 4GB, Disco Duro 1,000GB, Incluye Unidad óptica, Teclado y Mouse, Sistema Operativo Windows 10 Profesional 64 Bits, Garantía de 1 años en centro de servicio." />
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="Computadora en Venta Palacio Hierro">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <img src="imagenes/computadora2.jpg"/>
+                        <h:outputText value="La idea que nos motiva al crear una iMac es brindar una experiencia realmente cautivadora. Y ahora, esa idea está más vigente que nunca. La nueva iMac viene con nuevos procesadores, lo último en tecnología gráfica, almacenamiento innovador y conectividad con mayor ancho de banda. Y todo esto cobra vida en la pantalla Retina más brillante y con más colores creada para una iMac hasta ahora. Prepárate para disfrutar una experiencia aún más interactiva, de una forma totalmente nueva." />
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="Computadora en Venta Sears">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <img src="imagenes/computadora3.jpg"/>
+                        <h:outputText value="Intel Celeron N2830 Dual-Core processor 2.16GHz (up to 2.41GHz via Turbo boost), 1MB L2 Cache; Intel HD Graphics2GB DDR3 SDRAM system memory, 16GB ssd hard drive, 3-in-1 memory card reader ( SD, DXC, MultiMediaCard (MMC)); No optical drive15.6" />
+                    </h:panelGrid>
+                </p:tab>
+            </p:accordionPanel>
+
+            <h3>DataModel</h3>
+            <p:accordionPanel value="#{managedBeanTable.cars}" var="car">
+                <p:tab title="Car - #{car.getRandomId}">
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <f:facet name="header">
+                            <p:graphicImage name="demo/images/car/#{car.getRandomBrand}-big.jpg" />
+                        </f:facet>                    
+                        <h:outputText value="Brand:" style="font-weight: bold" />
+                        <h:outputText value="#{car.getRandomBrand}" />
+
+                        <h:outputText value="Year:" style="font-weight: bold" />
+                        <h:outputText value="#{car.getRandomYear}" />
+
+                        <h:outputText value="Color:" style="font-weight: bold" />
+                        <h:outputText value="#{car.getRandomColor}" />
+                    </h:panelGrid>
+                </p:tab>
+            </p:accordionPanel>
+        </h:form>
+
+
+    </h:body>
+</html>
+

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Tabla Base de Datos Universe</title>
+    </h:head>
+    <h:body>
+        <p:dataTable var="tabla" value="#{managedBeanUniverse.tipodeEndo}">
+            <p:column headerText="Clave">
+                <h:outputText value="#{tabla.id}" />
+            </p:column>
+            <p:column headerText="DescripcionEndoso">
+                <h:outputText value="#{tabla.descripcion}" />
+            </p:column>
+            <p:column headerText="TipoEndoso">
+                <h:outputText value="#{tabla.tipo}" />
+            </p:column>
+        </p:dataTable>
+    </h:body>
+</html>
+
